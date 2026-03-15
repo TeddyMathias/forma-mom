@@ -21,31 +21,30 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section id="stories" className="py-24 lg:py-36">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        {/* Section header */}
+    <section id="stories" className="py-24 lg:py-36 bg-deep-earth relative overflow-hidden">
+      {/* Subtle organic shapes on dark bg — inspired by Matrescence cover */}
+      <div className="absolute top-[10%] right-[10%] w-[220px] h-[250px] rounded-[55%_45%_50%_50%/50%_55%_45%_50%] bg-soft-terracotta/[0.08]" />
+      <div className="absolute bottom-[15%] left-[8%] w-[150px] h-[170px] rounded-[50%_50%_40%_60%/45%_55%_50%_50%] bg-teal-muted/[0.06]" />
+
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
         <div className="max-w-2xl mb-20">
-          <p className="text-[13px] tracking-[0.2em] uppercase text-sage mb-6">
+          <p className="text-[13px] tracking-[0.2em] uppercase text-amber-light mb-6">
             Client Stories
           </p>
-          <h2 className="font-serif text-[clamp(2.2rem,5vw,3.8rem)] font-normal leading-[1.1] text-deep-earth">
-            Real mothers, <em className="text-warm-brown">real strength.</em>
+          <h2 className="font-serif text-[clamp(2rem,4.5vw,3.4rem)] font-normal leading-[1.15] text-cream">
+            Real mothers, <em>real strength.</em>
           </h2>
         </div>
 
-        {/* Testimonial grid */}
         <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
           {testimonials.map((t) => (
             <div key={t.name} className="flex flex-col">
-              {/* Quote */}
-              <blockquote className="text-warm-brown leading-[1.8] mb-8 flex-1">
+              <blockquote className="text-cream/70 leading-[1.8] text-[15px] mb-8 flex-1">
                 &ldquo;{t.quote}&rdquo;
               </blockquote>
-
-              {/* Attribution */}
-              <div className="pt-6 border-t border-sand">
-                <p className="font-serif text-lg text-deep-earth">{t.name}</p>
-                <p className="text-[12px] tracking-[0.1em] uppercase text-warm-brown-light mt-1">
+              <div className="pt-6 border-t border-cream/10">
+                <p className="font-serif text-lg text-cream">{t.name}</p>
+                <p className="text-[11px] tracking-[0.12em] uppercase text-cream/40 mt-1">
                   {t.detail}
                 </p>
               </div>

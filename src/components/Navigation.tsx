@@ -11,9 +11,9 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-20">
           <a
             href="#"
-            className="font-serif text-2xl font-medium tracking-[0.08em] text-deep-earth"
+            className="font-serif text-[1.6rem] font-medium tracking-[0.04em] text-deep-earth"
           >
-            forma
+            Forma
           </a>
 
           <div className="hidden md:flex items-center gap-10">
@@ -21,14 +21,14 @@ export default function Navigation() {
               <a
                 key={item}
                 href={`#${item.toLowerCase()}`}
-                className="text-[13px] tracking-[0.12em] uppercase text-warm-brown hover:text-sage-dark transition-colors duration-300"
+                className="text-[13px] tracking-[0.12em] uppercase text-warm-brown hover:text-amber transition-colors duration-300"
               >
                 {item}
               </a>
             ))}
             <a
               href="#book"
-              className="ml-2 px-7 py-2.5 bg-sage text-white text-[13px] tracking-[0.1em] uppercase rounded-full hover:bg-sage-dark transition-colors duration-300"
+              className="ml-2 px-7 py-2.5 bg-amber text-white text-[13px] tracking-[0.1em] uppercase rounded-full hover:bg-amber-dark transition-colors duration-300"
             >
               Book a Session
             </a>
@@ -66,7 +66,7 @@ export default function Navigation() {
             <a
               href="#book"
               onClick={() => setIsOpen(false)}
-              className="block text-center px-7 py-3 bg-sage text-white text-[13px] tracking-[0.1em] uppercase rounded-full"
+              className="block text-center px-7 py-3 bg-amber text-white text-[13px] tracking-[0.1em] uppercase rounded-full"
             >
               Book a Session
             </a>
