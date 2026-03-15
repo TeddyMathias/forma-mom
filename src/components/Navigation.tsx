@@ -17,13 +17,19 @@ export default function Navigation() {
           </a>
 
           <div className="hidden md:flex items-center gap-10">
-            {["About", "Services", "Approach", "Stories"].map((item) => (
+            {[
+              { label: "About", href: "#about" },
+              { label: "Lane", href: "#lane" },
+              { label: "Services", href: "#services" },
+              { label: "Approach", href: "#approach" },
+              { label: "Stories", href: "#stories" },
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 className="text-[13px] tracking-[0.12em] uppercase text-warm-brown hover:text-amber transition-colors duration-300"
               >
-                {item}
+                {item.label}
               </a>
             ))}
             <a
@@ -53,14 +59,20 @@ export default function Navigation() {
       {isOpen && (
         <div className="md:hidden bg-cream border-t border-sand animate-fade-in">
           <div className="px-6 py-8 space-y-6">
-            {["About", "Services", "Approach", "Stories"].map((item) => (
+            {[
+              { label: "About", href: "#about" },
+              { label: "Lane", href: "#lane" },
+              { label: "Services", href: "#services" },
+              { label: "Approach", href: "#approach" },
+              { label: "Stories", href: "#stories" },
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.label}
+                href={item.href}
                 onClick={() => setIsOpen(false)}
                 className="block text-[13px] tracking-[0.12em] uppercase text-warm-brown"
               >
-                {item}
+                {item.label}
               </a>
             ))}
             <a
