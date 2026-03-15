@@ -1,21 +1,21 @@
 export default function About() {
   return (
-    <section id="about" className="py-24 lg:py-36 bg-cream-warm">
+    <section id="about" className="py-24 lg:py-36">
       <div className="max-w-7xl mx-auto px-6 lg:px-16">
         {/* Full-width headline */}
         <div className="max-w-4xl mb-20">
-          <p className="text-[13px] tracking-[0.2em] uppercase text-sage mb-6">
+          <p className="text-[13px] tracking-[0.2em] uppercase text-amber mb-6">
             About Forma
           </p>
-          <h2 className="font-serif text-[clamp(2.2rem,5vw,3.8rem)] font-normal leading-[1.1] text-deep-earth">
+          <h2 className="font-serif text-[clamp(2rem,4.5vw,3.4rem)] font-normal leading-[1.15] text-deep-earth">
             Where luxury and fitness converge to create an unparalleled
-            <em className="text-warm-brown"> in-home training experience.</em>
+            <em> in-home training experience.</em>
           </h2>
         </div>
 
         {/* Two-column content */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          <div className="space-y-6 text-warm-brown leading-[1.75]">
+          <div className="space-y-6 text-warm-brown leading-[1.8] text-[15px]">
             <p>
               Our white-glove service brings personalized, expert-led workouts
               directly to your doorstep, transforming your space into a private
@@ -29,7 +29,7 @@ export default function About() {
               sophistication and care.
             </p>
           </div>
-          <div className="space-y-6 text-warm-brown leading-[1.75]">
+          <div className="space-y-6 text-warm-brown leading-[1.8] text-[15px]">
             <p>
               From prenatal preparation to postpartum recovery and beyond,
               our certified specialists understand the profound physical
@@ -44,7 +44,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* Minimal stats row */}
+        {/* Stats */}
         <div className="mt-20 pt-16 border-t border-sand">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
             {[
@@ -57,7 +57,7 @@ export default function About() {
                 <p className="font-serif text-3xl lg:text-4xl font-normal text-deep-earth mb-2">
                   {stat.value}
                 </p>
-                <p className="text-[13px] tracking-[0.1em] uppercase text-warm-brown-light">
+                <p className="text-[12px] tracking-[0.12em] uppercase text-warm-brown-light">
                   {stat.label}
                 </p>
               </div>
