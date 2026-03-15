@@ -1,28 +1,20 @@
 export default function Banner() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-r from-terracotta to-terracotta-dark relative overflow-hidden">
-      {/* Organic overlay shapes */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-[300px] h-[300px] rounded-full bg-white/5" />
-        <div className="absolute bottom-0 right-1/3 w-[200px] h-[200px] rounded-full bg-white/5" />
-      </div>
-
-      <div className="relative max-w-4xl mx-auto px-6 lg:px-12 text-center">
-        <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-light leading-tight text-white mb-6">
-          You deserve to feel
-          <br />
-          <span className="italic">strong.</span>
+    <section className="py-24 lg:py-36 bg-gradient-to-br from-sage/10 via-cream-warm to-soft-peach/20">
+      <div className="max-w-4xl mx-auto px-6 lg:px-16 text-center">
+        <h2 className="font-serif text-[clamp(2.2rem,5vw,3.8rem)] font-normal leading-[1.1] text-deep-earth mb-8">
+          You deserve to feel <em className="text-warm-brown">strong.</em>
         </h2>
-        <p className="text-white/80 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+        <p className="text-warm-brown leading-[1.75] max-w-2xl mx-auto mb-12">
           Whether you&apos;re preparing for birth, navigating the fourth trimester,
-          or reclaiming your fitness years into motherhood — Forma is here for
-          every chapter.
+          or reclaiming your fitness years into motherhood — Forma is here
+          for every chapter.
         </p>
         <a
           href="#book"
-          className="inline-flex items-center justify-center px-10 py-4 bg-white text-terracotta text-sm font-medium tracking-widest uppercase rounded-full hover:bg-cream transition-all duration-300 hover:shadow-xl hover:-translate-y-0.5"
+          className="inline-flex items-center justify-center px-10 py-4 bg-sage text-white text-[13px] tracking-[0.12em] uppercase rounded-full hover:bg-sage-dark transition-colors duration-300"
         >
-          Book Your Session Today
+          Book Your Session
         </a>
       </div>
     </section>
