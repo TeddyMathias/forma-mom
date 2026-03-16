@@ -2,7 +2,7 @@
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[82vh] flex items-center justify-center pt-32 bg-sand overflow-hidden">
+    <section className="relative min-h-[82vh] flex items-center justify-center pt-32 pb-24 bg-sand overflow-hidden">
       {/* Content */}
       <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 w-full text-center">
         <div className="max-w-[600px] mx-auto">
