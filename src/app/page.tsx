@@ -7,6 +7,7 @@ import Approach from "@/components/Approach";
 import Testimonials from "@/components/Testimonials";
 import Banner from "@/components/Banner";
 import Booking from "@/components/Booking";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <Testimonials />
       <Banner />
       <Booking />
+      <FAQ />
       <Footer />
     </main>
   );
