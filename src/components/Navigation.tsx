@@ -17,7 +17,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <a
               href="#"
-              className="font-serif text-[1.7rem] text-ink"
+              className="font-serif text-[2.125rem] text-ink"
             >
               F<span className="inline-block relative top-[-0.05em] mx-[0.04em] w-[0.6em] h-[0.6em]"><span className="absolute inset-0 bg-camel logo-blob" /><span className="absolute inset-0 border-[1px] border-ink logo-blob z-10" style={{ animationDelay: '-1s' }} /></span>RMA
             </a>

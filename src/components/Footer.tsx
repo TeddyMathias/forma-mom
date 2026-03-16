@@ -10,7 +10,7 @@ export default function Footer() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid md:grid-cols-12 gap-10 mb-14">
           <div className="md:col-span-4 scroll-reveal rv-up">
-            <h3 className="font-serif text-[1.4rem] text-cream/50 mb-3">
+            <h3 className="font-serif text-[1.75rem] text-cream/50 mb-3">
               F<span className="inline-block relative top-[-0.05em] mx-[0.04em] w-[0.6em] h-[0.6em]"><span className="absolute inset-0 bg-camel logo-blob" /><span className="absolute inset-0 border-[1px] border-cream/50 logo-blob z-10" style={{ animationDelay: '-1s' }} /></span>RMA
             </h3>
             <p className="text-cream/30 leading-[1.8] max-w-xs text-[13.5px] font-light">
