@@ -1,68 +1,53 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 export default function About() {
+  const ref = useScrollReveal();
+
   return (
-    <section id="about" className="py-24 lg:py-36">
-      <div className="max-w-7xl mx-auto px-6 lg:px-16">
-        {/* Full-width headline */}
-        <div className="max-w-4xl mb-20">
-          <p className="text-[13px] tracking-[0.2em] uppercase text-amber mb-6">
-            About Forma
+    <section id="about" className="py-24 lg:py-36 bg-cream" ref={ref}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <p className="font-serif text-[14px] italic text-camel mb-3 scroll-reveal rv-up">
+          About Forma
+        </p>
+        <h2 className="font-serif text-[clamp(1.7rem,3.5vw,2.6rem)] font-normal leading-[1.22] text-ink max-w-[540px] mb-10 scroll-reveal rv-up rv-d1">
+          Where luxury and fitness converge to create an <em className="italic">unparalleled experience.</em>
+        </h2>
+
+        <div className="grid sm:grid-cols-2 gap-8 lg:gap-12 max-w-[780px] mb-14">
+          <p className="text-[15px] leading-[1.9] text-ink-muted font-light scroll-reveal rv-up rv-d2">
+            Our white-glove service brings personalized, expert-led workouts
+            directly to your doorstep, transforming your space into a private
+            sanctuary. Each session is meticulously tailored to your unique goals.
           </p>
-          <h2 className="font-serif text-[clamp(2rem,4.5vw,3.4rem)] font-normal leading-[1.15] text-deep-earth">
-            Where luxury and fitness converge to create an unparalleled
-            <em> in-home training experience.</em>
-          </h2>
+          <p className="text-[15px] leading-[1.9] text-ink-muted font-light scroll-reveal rv-up rv-d3">
+            From prenatal preparation to postpartum recovery and beyond,
+            our certified specialists understand the profound physical
+            transformations of motherhood.
+          </p>
         </div>
 
-        {/* Two-column content */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          <div className="space-y-6 text-warm-brown leading-[1.8] text-[15px]">
-            <p>
-              Our white-glove service brings personalized, expert-led workouts
-              directly to your doorstep, transforming your space into a private
-              sanctuary. Each session is meticulously tailored to your unique
-              goals, ensuring that every movement, every breath, and every
-              moment is perfected to elevate your body and mind.
-            </p>
-            <p>
-              With Forma, you&apos;re not just working out — you&apos;re engaging in
-              the art of fitness, refined and delivered with the utmost
-              sophistication and care.
-            </p>
-          </div>
-          <div className="space-y-6 text-warm-brown leading-[1.8] text-[15px]">
-            <p>
-              From prenatal preparation to postpartum recovery and beyond,
-              our certified specialists understand the profound physical
-              transformations of motherhood. Every program is designed to
-              honor that journey — supporting you through each stage with
-              clinical knowledge and genuine care.
-            </p>
-            <p>
-              We believe that investing in your body is investing in your
-              family. When you feel strong, everything else follows.
-            </p>
-          </div>
-        </div>
-
-        {/* Stats */}
-        <div className="mt-20 pt-16 border-t border-sand">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
-            {[
-              { value: "500+", label: "Mothers served" },
-              { value: "5,000+", label: "Sessions delivered" },
-              { value: "15+", label: "Certified trainers" },
-              { value: "98%", label: "Client satisfaction" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="font-serif text-3xl lg:text-4xl font-normal text-deep-earth mb-2">
-                  {stat.value}
-                </p>
-                <p className="text-[12px] tracking-[0.12em] uppercase text-warm-brown-light">
-                  {stat.label}
-                </p>
-              </div>
-            ))}
-          </div>
+        {/* Stats bar */}
+        <div className="flex flex-col sm:flex-row border-t border-b border-border scroll-reveal rv-up rv-d4">
+          {[
+            { value: "XX", label: "Mothers trained" },
+            { value: "XX", label: "Sessions delivered" },
+            { value: "XX", label: "Years of experience" },
+            { value: "XX", label: "Client satisfaction" },
+          ].map((stat, i) => (
+            <div
+              key={stat.label}
+              className={`flex-1 py-7 text-center ${i < 3 ? "sm:border-r sm:border-border" : ""} ${i > 0 ? "border-t sm:border-t-0 border-border" : ""}`}
+            >
+              <p className="font-serif text-[2.4rem] text-ink">
+                {stat.value}
+              </p>
+              <p className="text-[10px] tracking-[0.12em] uppercase text-ink/40 mt-1">
+                {stat.label}
+              </p>
+            </div>
+          ))}
         </div>
       </div>
     </section>

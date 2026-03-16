@@ -1,3 +1,7 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const steps = [
   {
     title: "Consultation",
@@ -22,45 +26,47 @@ const steps = [
 ];
 
 export default function Approach() {
-  return (
-    <section id="approach" className="py-24 lg:py-36 relative">
-      {/* Very subtle organic shape */}
-      <div className="absolute top-[25%] right-[6%] w-[180px] h-[200px] rounded-[55%_45%_50%_50%/50%_55%_45%_50%] bg-amber/[0.04]" />
+  const ref = useScrollReveal();
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
+  return (
+    <section id="approach" className="py-24 lg:py-36 bg-cream" ref={ref}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
-          <div className="lg:sticky lg:top-32 lg:self-start">
-            <p className="text-[13px] tracking-[0.2em] uppercase text-amber mb-6">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <p className="font-serif text-[14px] italic text-camel mb-3 scroll-reveal rv-up">
               Our Approach
             </p>
-            <h2 className="font-serif text-[clamp(2rem,4.5vw,3.4rem)] font-normal leading-[1.15] text-deep-earth mb-8">
-              A journey, <em>not a workout.</em>
+            <h2 className="font-serif text-[clamp(1.7rem,3.5vw,2.6rem)] font-normal leading-[1.22] text-ink mb-6 scroll-reveal rv-up rv-d1">
+              A journey, not <em className="italic">a workout.</em>
             </h2>
-            <p className="text-warm-brown leading-[1.8] text-[15px] max-w-md mb-10">
+            <p className="text-ink-muted leading-[1.85] text-[15px] max-w-md mb-10 font-light scroll-reveal rv-up rv-d2">
               We don&apos;t believe in one-size-fits-all. Forma is built around the
               understanding that motherhood is a profound transformation — and
               your fitness should honor every phase of it.
             </p>
             <a
               href="#book"
-              className="inline-flex items-center justify-center px-9 py-3.5 bg-amber text-white text-[13px] tracking-[0.12em] uppercase rounded-full hover:bg-amber-dark transition-colors duration-300"
+              className="inline-block px-8 py-3.5 bg-espresso text-cream text-[12px] tracking-[0.06em] uppercase rounded-md hover:opacity-85 transition-opacity duration-200 scroll-reveal rv-up rv-d3"
             >
               Start Your Journey
             </a>
           </div>
 
-          <div className="space-y-0">
+          <div>
             {steps.map((step, i) => (
-              <div key={step.title} className="py-10 border-t border-sand last:border-b">
-                <div className="flex items-start gap-6">
-                  <span className="font-serif text-lg text-warm-brown-light mt-1 shrink-0 w-8">
-                    0{i + 1}
+              <div
+                key={step.title}
+                className={`py-8 border-t border-border last:border-b scroll-reveal rv-up rv-d${i + 1}`}
+              >
+                <div className="flex items-start gap-5">
+                  <span className="font-serif text-[14px] italic text-camel mt-1 shrink-0 w-6">
+                    {String(i + 1).padStart(2, "0")}
                   </span>
                   <div>
-                    <h3 className="font-serif text-xl lg:text-2xl font-normal text-deep-earth mb-3">
+                    <h3 className="font-serif text-[1.25rem] font-normal text-ink mb-2">
                       {step.title}
                     </h3>
-                    <p className="text-warm-brown leading-[1.8] text-[15px]">
+                    <p className="text-ink-muted leading-[1.85] text-[14.5px] font-light">
                       {step.description}
                     </p>
                   </div>

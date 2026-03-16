@@ -1,0 +1,7 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#E4D9CB"/>
+  <rect x="250" y="180" width="300" height="220" rx="8" fill="#C49A6C" opacity="0.2"/>
+  <polygon points="400,120 550,220 250,220" fill="#C49A6C" opacity="0.25"/>
+  <text x="400" y="480" text-anchor="middle" font-family="system-ui" font-size="24" fill="#5C4A38" opacity="0.6">In-Home Training</text>
+  <text x="400" y="515" text-anchor="middle" font-family="system-ui" font-size="16" fill="#5C4A38" opacity="0.4">Replace with photo (800×600)</text>
+</svg>

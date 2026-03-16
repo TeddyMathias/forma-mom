@@ -1,45 +1,41 @@
+"use client";
+
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 bg-amber overflow-hidden">
-      {/* Subtle organic shapes inspired by Matrescence cover */}
-      <div
-        className="absolute top-[15%] right-[8%] w-[300px] h-[340px] rounded-[55%_45%_50%_50%/50%_55%_45%_50%] bg-soft-terracotta/20"
-      />
-      <div
-        className="absolute bottom-[12%] right-[20%] w-[180px] h-[200px] rounded-[50%_50%_40%_60%/45%_55%_50%_50%] bg-teal-muted/15"
-      />
-      <div
-        className="absolute bottom-[25%] right-[12%] w-[120px] h-[130px] rounded-[50%] bg-sage/10"
-      />
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16 w-full py-20 lg:py-32">
-        <div className="max-w-3xl">
-          <p className="text-[13px] tracking-[0.25em] uppercase text-cream/70 mb-8 animate-fade-in-up opacity-0 delay-100">
-            Prenatal &middot; Postpartum &middot; Beyond
+    <section className="relative min-h-[82vh] flex items-center justify-center pt-32 bg-sand overflow-hidden">
+      {/* Content */}
+      <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 w-full text-center">
+        <div className="max-w-[600px] mx-auto">
+          <p className="text-[12px] tracking-[0.14em] uppercase text-camel mb-7 font-medium anim-rise d1">
+            NYC &middot; Prenatal &middot; Postpartum &middot; Beyond
           </p>
 
-          <h1 className="font-serif text-[clamp(3.2rem,7.5vw,6.5rem)] font-normal leading-[1.02] text-cream mb-8 animate-fade-in-up opacity-0 delay-200">
-            Strength for
-            <br />
-            motherhood.
+          <h1 className="font-serif text-[clamp(3rem,7vw,5.2rem)] font-normal leading-[1.08] text-ink mb-7 anim-rise d2">
+            Strength for <em className="italic">motherhood.</em>
           </h1>
 
-          <p className="text-[17px] text-cream/75 leading-relaxed max-w-lg mb-12 animate-fade-in-up opacity-0 delay-300 font-light">
-            Personalized, expert-led fitness brought to your doorstep.
-            Every session is designed to support your body through
-            every stage of the journey.
+          <p className="text-[16.5px] text-ink-muted leading-[1.85] max-w-[420px] mx-auto mb-10 font-light anim-rise d3">
+            Personalized, expert-led fitness brought to your
+            doorstep. Supporting your body through every stage
+            of the journey.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up opacity-0 delay-400">
+          <div className="flex flex-wrap gap-3 justify-center anim-rise d4">
             <a
               href="#book"
-              className="inline-flex items-center justify-center px-9 py-3.5 bg-cream text-amber-dark text-[13px] font-medium tracking-[0.12em] uppercase rounded-full hover:bg-white transition-colors duration-300"
+              className="relative px-9 py-3.5 text-white text-[12px] tracking-[0.06em] uppercase transition-all duration-300 hover:scale-105"
             >
-              Book a Consultation
+              <span
+                className="absolute inset-0 bg-camel transition-[border-radius] duration-500"
+                style={{ borderRadius: "58% 42% 55% 45% / 50% 55% 45% 50%" }}
+                onMouseEnter={(e) => { e.currentTarget.style.borderRadius = "42% 58% 45% 55% / 55% 45% 50% 50%"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.borderRadius = "58% 42% 55% 45% / 50% 55% 45% 50%"; }}
+              />
+              <span className="relative">Book a Consultation</span>
             </a>
             <a
               href="#services"
-              className="inline-flex items-center justify-center px-9 py-3.5 border border-cream/30 text-cream text-[13px] tracking-[0.12em] uppercase rounded-full hover:border-cream/60 transition-colors duration-300"
+              className="px-9 py-3.5 border-[1.5px] border-espresso text-espresso text-[12px] tracking-[0.06em] uppercase rounded-md hover:bg-espresso hover:text-cream transition-all duration-200"
             >
               Our Services
             </a>
@@ -47,9 +43,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll line */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in opacity-0 delay-500">
-        <div className="w-px h-10 bg-cream/25" />
+      {/* Scroll hint */}
+      <div className="absolute bottom-6 left-6 lg:left-12 anim-appear d6">
+        <div className="w-px h-12 bg-ink/15" />
       </div>
     </section>
   );

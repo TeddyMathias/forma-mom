@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forma — Direction 2: Soft Clay</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F2EBE1;
+    --bg-alt: #EAE1D5;
+    --ink: #352F2A;
+    --ink-mid: #78706A;
+    --ink-light: #A09690;
+    --accent: #C2714E;
+    --accent-hover: #A85E3E;
+    --teal: #5A9E96;
+    --border: #DDD4C8;
+    --card: #FAF6F0;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  ::selection { background: var(--accent); color:#fff; }
+
+  .nav { padding: 20px 40px; display:flex; justify-content:space-between; align-items:center; }
+  .nav-logo { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; letter-spacing: 0.04em; color: var(--ink); text-decoration:none; }
+  .nav-links { display:flex; gap:24px; align-items:center; }
+  .nav-links a { font-size: 13px; color: var(--ink-mid); text-decoration:none; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-cta { background: var(--accent); color:#fff; padding:9px 24px; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:28px; transition:background 0.2s; }
+  .nav-cta:hover { background:var(--accent-hover); }
+
+  .hero { min-height:88vh; display:flex; align-items:center; padding:80px 40px; position:relative; overflow:hidden; }
+  .hero-shape { position:absolute; right:-5%; top:8%; width:45vw; max-width:480px; opacity:0.12; }
+  .hero-shape svg { width:100%; height:auto; }
+  .hero-content { max-width:520px; position:relative; }
+  .hero-label { font-size:12px; letter-spacing:0.15em; text-transform:uppercase; color:var(--teal); margin-bottom:20px; }
+  .hero h1 { font-family:var(--serif); font-size:clamp(2.6rem,6vw,4.5rem); font-weight:300; line-height:1.1; margin-bottom:24px; }
+  .hero-body { font-size:15.5px; line-height:1.85; color:var(--ink-mid); max-width:400px; margin-bottom:36px; font-weight:300; }
+  .btn-pill { background:var(--accent); color:#fff; padding:13px 32px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:28px; font-family:var(--sans); border:none; cursor:pointer; transition:background 0.2s; display:inline-block; }
+  .btn-pill:hover { background:var(--accent-hover); }
+  .btn-outline { border:1px solid var(--border); color:var(--ink-mid); padding:13px 32px; font-size:12px; letter-spacing:0.08em; text-transform:uppercase; text-decoration:none; border-radius:28px; background:transparent; transition:all 0.2s; display:inline-block; }
+  .btn-outline:hover { border-color:var(--ink-mid); color:var(--ink); }
+
+  .section { padding:80px 40px; }
+  .section-alt { background:var(--bg-alt); }
+  .section-teal { background:var(--teal); color:#fff; }
+  .section-label { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+  .section-teal .section-label { color:rgba(255,255,255,0.5); }
+  .section-heading { font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.5rem); font-weight:300; line-height:1.25; max-width:560px; margin-bottom:28px; }
+
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; margin-top:48px; padding-top:32px; border-top:1px solid var(--border); }
+  .stat-value { font-family:var(--serif); font-size:2rem; font-weight:300; color:var(--accent); }
+  .stat-label { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+
+  .service-card { padding:32px 0; border-top:1px solid var(--border); display:grid; grid-template-columns:48px 200px 1fr auto; gap:20px; align-items:start; }
+  .service-card:last-child { border-bottom:1px solid var(--border); }
+  .service-num { font-family:var(--serif); color:var(--ink-light); font-size:15px; }
+  .service-title { font-family:var(--serif); font-size:1.25rem; font-weight:400; }
+  .service-sub { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; }
+  .service-desc { font-size:14.5px; line-height:1.85; color:var(--ink-mid); font-weight:300; }
+  .service-link { font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); text-decoration:none; }
+
+  .testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; }
+  .testimonial-card { background:rgba(255,255,255,0.08); border-radius:16px; padding:28px; display:flex; flex-direction:column; }
+  .testimonial-quote { font-size:14.5px; line-height:1.85; color:rgba(255,255,255,0.6); margin-bottom:auto; padding-bottom:24px; font-weight:300; }
+  .testimonial-meta { border-top:1px solid rgba(255,255,255,0.08); padding-top:16px; }
+  .testimonial-name { font-family:var(--serif); font-size:1rem; }
+  .testimonial-detail { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; opacity:0.35; margin-top:4px; }
+
+  .form-card { background:var(--card); border-radius:20px; padding:40px; }
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .form-field { display:flex; flex-direction:column; gap:5px; }
+  .form-field.full { grid-column:1/-1; }
+  .form-field label { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); }
+  .form-field input,.form-field select,.form-field textarea { padding:11px 16px; border:1px solid var(--border); background:white; border-radius:10px; font-family:var(--sans); font-size:14px; color:var(--ink); outline:none; transition:border-color 0.2s; }
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus { border-color:var(--accent); }
+  .form-field textarea { resize:none; }
+
+  .footer { background:var(--ink); color:rgba(255,255,255,0.3); padding:48px 40px 20px; font-size:13px; }
+  .footer-logo { font-family:var(--serif); font-size:1.3rem; color:rgba(255,255,255,0.5); margin-bottom:8px; }
+
+  .direction-label { position:fixed; bottom:16px; right:16px; background:var(--accent); color:#fff; padding:8px 16px; font-size:11px; letter-spacing:0.06em; z-index:100; font-family:var(--sans); border-radius:20px; }
+
+  @media(max-width:768px) {
+    .nav-links{display:none;} .hero{min-height:70vh;padding:60px 24px;} .section{padding:60px 24px;} .stats{grid-template-columns:repeat(2,1fr);} .service-card{grid-template-columns:1fr;} .testimonials-grid{grid-template-columns:1fr;} .form-grid{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="direction-label">02 — Soft Clay</div>
+
+<nav class="nav">
+  <a href="#" class="nav-logo">Forma</a>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Approach</a>
+    <a href="#">Stories</a>
+    <a href="#" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<!-- Organic blob shape -->
+<section class="hero">
+  <div class="hero-shape">
+    <svg viewBox="0 0 400 500" fill="none"><path d="M280 60c60 35 100 100 95 180-6 90-65 140-140 160-80 22-160-10-190-85-25-65 0-110 35-150 28-32 48-65 42-100-5-30 10-50 40-55 35-6 80 20 118 50z" fill="#C2714E"/></svg>
+  </div>
+  <div class="hero-content">
+    <p class="hero-label">Prenatal · Postpartum · Beyond</p>
+    <h1>Strength for motherhood.</h1>
+    <p class="hero-body">Personalized, expert-led fitness brought to your doorstep. Supporting your body through every stage of the journey.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#" class="btn-pill">Book a Consultation</a>
+      <a href="#" class="btn-outline">Our Services</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-label">About Forma</p>
+  <h2 class="section-heading">Where luxury and fitness converge to create an unparalleled in-home training experience.</h2>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:760px;">
+    <p style="font-size:14.5px;line-height:1.85;color:var(--ink-mid);font-weight:300;">Our white-glove service brings personalized, expert-led workouts directly to your doorstep, transforming your space into a private sanctuary.</p>
+    <p style="font-size:14.5px;line-height:1.85;color:var(--ink-mid);font-weight:300;">From prenatal preparation to postpartum recovery, our certified specialists understand the profound physical transformations of motherhood.</p>
+  </div>
+  <div class="stats">
+    <div><div class="stat-value">500+</div><div class="stat-label">Mothers served</div></div>
+    <div><div class="stat-value">5,000+</div><div class="stat-label">Sessions delivered</div></div>
+    <div><div class="stat-value">15+</div><div class="stat-label">Certified trainers</div></div>
+    <div><div class="stat-value">98%</div><div class="stat-label">Client satisfaction</div></div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <p class="section-label">Our Services</p>
+  <h2 class="section-heading">Training designed around you.</h2>
+  <div class="service-card"><span class="service-num">01</span><div><div class="service-title">In-Home Training</div><div class="service-sub">Manhattan & Brooklyn</div></div><div class="service-desc">Workouts brought directly to your doorstep with personalized sessions designed around your schedule.</div><a href="#" class="service-link">Book →</a></div>
+  <div class="service-card"><span class="service-num">02</span><div><div class="service-title">Training at NYLO</div><div class="service-sub">Tribeca, NYC</div></div><div class="service-desc">Personal and small group training at NYLO in Tribeca — a beautiful studio space.</div><a href="#" class="service-link">Book →</a></div>
+  <div class="service-card"><span class="service-num">03</span><div><div class="service-title">Virtual Sessions</div><div class="service-sub">Worldwide</div></div><div class="service-desc">Tailor-made sessions from anywhere in the world with the same expertise.</div><a href="#" class="service-link">Book →</a></div>
+</section>
+
+<section class="section section-teal">
+  <p class="section-label">Client Stories</p>
+  <h2 class="section-heading">Real mothers, real strength.</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card"><p class="testimonial-quote">"Forma completely transformed my postpartum recovery. The in-home convenience made it possible as a new mom."</p><div class="testimonial-meta"><div class="testimonial-name">Alexandra M.</div><div class="testimonial-detail">Mom of two, UWS</div></div></div>
+    <div class="testimonial-card"><p class="testimonial-quote">"The level of personalization is unmatched. I felt safe, supported, and genuinely cared for."</p><div class="testimonial-meta"><div class="testimonial-name">Sarah K.</div><div class="testimonial-detail">Prenatal client, Tribeca</div></div></div>
+    <div class="testimonial-card"><p class="testimonial-quote">"It's an investment in myself that has paid dividends in my energy and confidence."</p><div class="testimonial-meta"><div class="testimonial-name">Maya R.</div><div class="testimonial-detail">Mom of one, Brooklyn Heights</div></div></div>
+  </div>
+</section>
+
+<section class="section" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start;">
+  <div>
+    <p class="section-label">Get Started</p>
+    <h2 class="section-heading">Your first step starts here.</h2>
+    <p style="font-size:15px;line-height:1.8;color:var(--ink-mid);max-width:380px;font-weight:300;">Book a complimentary consultation. No commitment, no pressure — just a conversation about what strength means to you.</p>
+  </div>
+  <div class="form-card">
+    <div class="form-grid">
+      <div class="form-field"><label>First Name</label><input type="text" placeholder="Jane"></div>
+      <div class="form-field"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+      <div class="form-field full"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+      <div class="form-field full"><label>Phone</label><input type="tel" placeholder="(212) 555-0100"></div>
+      <div class="form-field full"><label>Tell us about your journey</label><textarea rows="3" placeholder="Expecting, postpartum, goals..."></textarea></div>
+      <div class="form-field full"><button class="btn-pill" style="width:100%;padding:14px;border:none;cursor:pointer;">Book Your Consultation</button></div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-logo">Forma</div><p>Strength for motherhood. © 2026</p></footer>
+</body>
+</html>

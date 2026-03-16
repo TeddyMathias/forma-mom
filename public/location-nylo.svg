@@ -1,0 +1,8 @@
+<svg width="800" height="600" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#E4D9CB"/>
+  <rect x="200" y="150" width="400" height="250" rx="8" fill="#C49A6C" opacity="0.2"/>
+  <rect x="280" y="200" width="80" height="120" rx="4" fill="#C49A6C" opacity="0.15"/>
+  <rect x="440" y="200" width="80" height="120" rx="4" fill="#C49A6C" opacity="0.15"/>
+  <text x="400" y="480" text-anchor="middle" font-family="system-ui" font-size="24" fill="#5C4A38" opacity="0.6">NYLO Studio — Tribeca</text>
+  <text x="400" y="515" text-anchor="middle" font-family="system-ui" font-size="16" fill="#5C4A38" opacity="0.4">Replace with photo (800×600)</text>
+</svg>

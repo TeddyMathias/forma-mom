@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forma — Direction 10: Haven</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Satoshi:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4ECE1;
+    --bg-warm: #ECE2D5;
+    --ink: #2C241C;
+    --ink-mid: #786A5C;
+    --ink-light: #A49484;
+    --peach: #D4856A;
+    --peach-hover: #C07258;
+    --clay: #B86E50;
+    --blush: #E8CEB8;
+    --blush-pale: #F2E2D2;
+    --mushroom: #C4AE96;
+    --parchment: #FAF6F0;
+    --dark: #3A302A;
+    --border: #DED2C4;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Satoshi', system-ui, sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:var(--sans); background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; }
+  ::selection { background:var(--peach); color:#fff; }
+
+  .nav { padding:22px 48px; display:flex; justify-content:space-between; align-items:center; }
+  .nav-logo { font-family:var(--serif); font-size:1.55rem; font-weight:400; color:var(--ink); text-decoration:none; font-optical-sizing:auto; }
+  .nav-links { display:flex; gap:28px; align-items:center; }
+  .nav-links a { font-size:13px; color:var(--ink-mid); text-decoration:none; font-weight:400; transition:color 0.2s; }
+  .nav-links a:hover { color:var(--ink); }
+  .nav-cta { background:var(--ink); color:var(--parchment); padding:10px 26px; font-size:11px; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; border-radius:32px; font-weight:500; transition:all 0.2s; }
+  .nav-cta:hover { background:var(--dark); }
+
+  .hero { min-height:92vh; display:grid; grid-template-columns:1.1fr 1fr; align-items:center; padding:60px 48px; gap:40px; }
+  .hero-content { max-width:480px; }
+  .hero-tag { font-size:12px; letter-spacing:0.12em; text-transform:uppercase; color:var(--peach); font-weight:500; margin-bottom:24px; }
+  .hero h1 { font-family:var(--serif); font-size:clamp(2.6rem,5.5vw,4.2rem); font-weight:300; line-height:1.1; margin-bottom:20px; font-optical-sizing:auto; }
+  .hero h1 em { font-style:italic; font-weight:400; }
+  .hero-body { font-size:16px; line-height:1.85; color:var(--ink-mid); max-width:380px; margin-bottom:36px; font-weight:300; }
+  .hero-visual { position:relative; height:520px; border-radius:200px 200px 24px 24px; overflow:hidden; background:var(--blush-pale); display:flex; align-items:center; justify-content:center; }
+  .hero-visual svg { width:70%; opacity:0.6; }
+
+  .btn-dark { display:inline-block; background:var(--ink); color:var(--parchment); padding:14px 36px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; border-radius:32px; font-family:var(--sans); font-weight:500; transition:all 0.2s; border:none; cursor:pointer; }
+  .btn-dark:hover { background:var(--dark); }
+  .btn-nude { display:inline-block; background:var(--blush-pale); color:var(--ink); padding:14px 36px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; border-radius:32px; font-weight:500; transition:all 0.2s; }
+  .btn-nude:hover { background:var(--blush); }
+
+  .section { padding:88px 48px; }
+  .section-parchment { background:var(--parchment); }
+  .section-dark { background:var(--dark); color:var(--parchment); }
+  .section-label { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--peach); margin-bottom:12px; font-weight:500; }
+  .section-dark .section-label { color:var(--peach); }
+  .section-heading { font-family:var(--serif); font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:300; line-height:1.25; max-width:520px; margin-bottom:32px; font-optical-sizing:auto; }
+  .section-heading em { font-style:italic; font-weight:400; }
+
+  .about-content { display:grid; grid-template-columns:1fr 1fr; gap:36px; max-width:760px; margin-bottom:48px; }
+  .about-content p { font-size:15px; line-height:1.9; color:var(--ink-mid); font-weight:300; }
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+  .stat { text-align:center; padding:32px 20px; position:relative; }
+  .stat::after { content:''; position:absolute; right:0; top:20%; height:60%; width:1px; background:var(--border); }
+  .stat:last-child::after { display:none; }
+  .stat-value { font-family:var(--serif); font-size:2.2rem; font-weight:300; color:var(--peach); font-optical-sizing:auto; }
+  .stat-label { font-size:10px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-light); margin-top:4px; font-weight:500; }
+
+  .services-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+  .s-card { background:var(--parchment); border-radius:20px; padding:32px; transition:all 0.25s; border:1px solid transparent; }
+  .s-card:hover { border-color:var(--peach); transform:translateY(-2px); box-shadow:0 12px 32px rgba(44,36,28,0.05); }
+  .s-card-tag { display:inline-block; background:var(--blush-pale); color:var(--peach); padding:4px 10px; border-radius:12px; font-size:10px; letter-spacing:0.08em; text-transform:uppercase; font-weight:500; margin-bottom:16px; }
+  .s-card h3 { font-family:var(--serif); font-size:1.2rem; font-weight:400; margin-bottom:4px; }
+  .s-card-sub { font-size:11px; color:var(--ink-light); margin-bottom:12px; font-weight:400; }
+  .s-card p { font-size:14.5px; line-height:1.85; color:var(--ink-mid); font-weight:300; }
+
+  .test-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .t-card { background:rgba(255,255,255,0.04); border-radius:20px; padding:28px; display:flex; flex-direction:column; border:1px solid rgba(255,255,255,0.06); }
+  .t-stars { display:flex; gap:2px; margin-bottom:16px; }
+  .t-star { width:16px; height:16px; fill:var(--peach); }
+  .t-quote { font-size:15px; line-height:1.85; color:rgba(250,246,240,0.5); margin-bottom:auto; padding-bottom:24px; font-weight:300; }
+  .t-meta { display:flex; align-items:center; gap:10px; border-top:1px solid rgba(255,255,255,0.06); padding-top:16px; }
+  .t-avatar { width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg, var(--peach), var(--clay)); display:flex; align-items:center; justify-content:center; font-size:13px; color:#fff; font-weight:500; }
+  .t-name { font-size:14px; font-weight:500; }
+  .t-detail { font-size:11px; color:rgba(250,246,240,0.25); margin-top:2px; }
+
+  .cta-section { background:linear-gradient(135deg, var(--peach), var(--clay)); border-radius:20px; padding:56px; text-align:center; color:#fff; margin:0 48px; }
+  .cta-section h2 { font-family:var(--serif); font-size:clamp(1.5rem,3vw,2.2rem); font-weight:300; margin-bottom:12px; }
+  .cta-section p { color:rgba(255,255,255,0.7); font-size:15px; margin-bottom:28px; font-weight:300; }
+  .btn-white { display:inline-block; background:#fff; color:var(--clay); padding:14px 36px; font-size:12px; letter-spacing:0.05em; text-transform:uppercase; text-decoration:none; border-radius:32px; font-weight:500; transition:all 0.2s; }
+  .btn-white:hover { background:var(--parchment); }
+
+  .form-layout { display:grid; grid-template-columns:1fr 1fr; gap:48px; align-items:start; }
+  .form-card { background:var(--parchment); border-radius:20px; padding:36px; }
+  .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .ff { display:flex; flex-direction:column; gap:6px; }
+  .ff.full { grid-column:1/-1; }
+  .ff label { font-size:11px; letter-spacing:0.06em; text-transform:uppercase; color:var(--ink-light); font-weight:500; }
+  .ff input,.ff textarea { padding:12px 16px; border:1px solid var(--border); border-radius:12px; background:#fff; font-family:var(--sans); font-size:14px; color:var(--ink); outline:none; transition:border-color 0.2s; }
+  .ff input:focus,.ff textarea:focus { border-color:var(--peach); }
+  .ff textarea { resize:none; }
+
+  .footer { background:var(--ink); color:rgba(250,246,240,0.3); padding:48px; font-size:13px; border-radius:20px 20px 0 0; }
+  .footer-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid rgba(250,246,240,0.06); }
+  .footer-logo { font-family:var(--serif); font-size:1.3rem; font-weight:400; color:rgba(250,246,240,0.5); }
+  .footer-links { display:flex; gap:20px; }
+  .footer-links a { color:rgba(250,246,240,0.3); text-decoration:none; font-size:13px; transition:color 0.2s; }
+  .footer-links a:hover { color:rgba(250,246,240,0.6); }
+
+  .direction-label { position:fixed; bottom:16px; right:16px; background:var(--peach); color:#fff; padding:8px 16px; font-size:11px; letter-spacing:0.06em; z-index:100; font-family:var(--sans); border-radius:20px; }
+
+  @media(max-width:768px) {
+    .nav{padding:16px 24px;} .nav-links{display:none;} .hero{grid-template-columns:1fr;min-height:75vh;padding:60px 24px;} .hero-visual{display:none;} .section{padding:60px 24px;} .about-content{grid-template-columns:1fr;} .stats{grid-template-columns:repeat(2,1fr);} .stat::after{display:none;} .services-grid{grid-template-columns:1fr;} .test-grid{grid-template-columns:1fr;} .form-layout{grid-template-columns:1fr;} .form-grid{grid-template-columns:1fr;} .cta-section{margin:0 24px;padding:40px 24px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="direction-label">10 — Haven</div>
+
+<nav class="nav">
+  <a href="#" class="nav-logo">Forma</a>
+  <div class="nav-links">
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Approach</a>
+    <a href="#">Stories</a>
+    <a href="#" class="nav-cta">Book Now</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-tag">Prenatal · Postpartum · Beyond</p>
+    <h1>Strength for <em>motherhood.</em></h1>
+    <p class="hero-body">Personalized, expert-led fitness brought to your doorstep. Supporting your body through every stage of the journey.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="#" class="btn-dark">Book a Consultation</a>
+      <a href="#" class="btn-nude">Our Services</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <svg viewBox="0 0 300 400" fill="none">
+      <path d="M150 20c-70 15-120 80-110 170 10 80 60 130 120 150 55 18 110 0 140-50 25-45 20-100-10-150-25-40-60-65-95-80-15-7-30-20-45-40z" fill="#D4856A" opacity="0.3"/>
+      <ellipse cx="170" cy="250" rx="80" ry="90" fill="#E8CEB8" opacity="0.5"/>
+      <circle cx="120" cy="320" r="40" fill="#B86E50" opacity="0.12"/>
+    </svg>
+  </div>
+</section>
+
+<section class="section section-parchment">
+  <p class="section-label">About Forma</p>
+  <h2 class="section-heading">Where luxury and fitness converge to create an <em>unparalleled experience.</em></h2>
+  <div class="about-content">
+    <p>Our white-glove service brings personalized workouts to your doorstep, transforming your space into a private sanctuary.</p>
+    <p>Our certified specialists understand the profound physical transformations of motherhood and design every program accordingly.</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-value">500+</div><div class="stat-label">Mothers served</div></div>
+    <div class="stat"><div class="stat-value">5,000+</div><div class="stat-label">Sessions delivered</div></div>
+    <div class="stat"><div class="stat-value">15+</div><div class="stat-label">Certified trainers</div></div>
+    <div class="stat"><div class="stat-value">98%</div><div class="stat-label">Client satisfaction</div></div>
+  </div>
+</section>
+
+<section class="section">
+  <p class="section-label">Our Services</p>
+  <h2 class="section-heading">Training designed <em>around you.</em></h2>
+  <div class="services-grid">
+    <div class="s-card">
+      <div class="s-card-tag">In-Person</div>
+      <h3>In-Home Training</h3>
+      <div class="s-card-sub">Manhattan & Brooklyn</div>
+      <p>Workouts brought directly to your doorstep with personalized sessions designed around your schedule.</p>
+    </div>
+    <div class="s-card">
+      <div class="s-card-tag">Studio</div>
+      <h3>Training at NYLO</h3>
+      <div class="s-card-sub">Tribeca, NYC</div>
+      <p>Personal and small group training at NYLO — a beautiful studio space where you can focus on yourself.</p>
+    </div>
+    <div class="s-card">
+      <div class="s-card-tag">Remote</div>
+      <h3>Virtual Sessions</h3>
+      <div class="s-card-sub">Worldwide</div>
+      <p>Tailor-made sessions from anywhere in the world with the same expertise and personalization.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section section-dark">
+  <p class="section-label">Client Stories</p>
+  <h2 class="section-heading">Real mothers, <em>real strength.</em></h2>
+  <div class="test-grid">
+    <div class="t-card">
+      <div class="t-stars"><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg></div>
+      <p class="t-quote">"Forma completely transformed my postpartum recovery. The in-home convenience made it possible as a new mom."</p>
+      <div class="t-meta"><div class="t-avatar">A</div><div><div class="t-name">Alexandra M.</div><div class="t-detail">Mom of two, UWS</div></div></div>
+    </div>
+    <div class="t-card">
+      <div class="t-stars"><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg></div>
+      <p class="t-quote">"The level of personalization is unmatched. I felt safe, supported, and genuinely cared for."</p>
+      <div class="t-meta"><div class="t-avatar">S</div><div><div class="t-name">Sarah K.</div><div class="t-detail">Prenatal client, Tribeca</div></div></div>
+    </div>
+    <div class="t-card">
+      <div class="t-stars"><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg><svg class="t-star" viewBox="0 0 16 16"><path d="M8 1l2.2 4.5 5 .7-3.6 3.5.9 5L8 12.4 3.5 14.7l.9-5L.8 6.2l5-.7z"/></svg></div>
+      <p class="t-quote">"It's an investment in myself that has paid dividends in my energy and confidence."</p>
+      <div class="t-meta"><div class="t-avatar">M</div><div><div class="t-name">Maya R.</div><div class="t-detail">Mom of one, Brooklyn Heights</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-section">
+    <h2>Begin your journey today.</h2>
+    <p>Complimentary consultations available — no commitment required.</p>
+    <a href="#" class="btn-white">Book Your Consultation</a>
+  </div>
+</section>
+
+<section class="section section-parchment">
+  <div class="form-layout">
+    <div>
+      <p class="section-label">Get Started</p>
+      <h2 class="section-heading">Your first step <em>starts here.</em></h2>
+      <p style="font-size:15px;line-height:1.85;color:var(--ink-mid);max-width:380px;font-weight:300;">Book a complimentary consultation. No commitment — just a conversation about what strength means to you.</p>
+    </div>
+    <div class="form-card">
+      <div class="form-grid">
+        <div class="ff"><label>First Name</label><input type="text" placeholder="Jane"></div>
+        <div class="ff"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        <div class="ff full"><label>Email</label><input type="email" placeholder="jane@email.com"></div>
+        <div class="ff full"><label>Phone</label><input type="tel" placeholder="(212) 555-0100"></div>
+        <div class="ff full"><label>Your journey</label><textarea rows="3" placeholder="Expecting, postpartum, goals..."></textarea></div>
+        <div class="ff full"><button class="btn-dark" style="width:100%;padding:14px;">Book Your Consultation</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-logo">Forma</div>
+    <div class="footer-links"><a href="#">About</a><a href="#">Services</a><a href="#">Stories</a><a href="#">Contact</a></div>
+  </div>
+  <p>Strength for motherhood. © 2026</p>
+</footer>
+</body>
+</html>

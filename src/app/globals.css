@@ -1,23 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-cream: #FAF6F1;
-  --color-cream-warm: #F2EBE0;
-  --color-sand: #E4DABF;
-  --color-amber: #C48A3F;
-  --color-amber-dark: #A87432;
-  --color-amber-light: #D4A05C;
-  --color-sage: #7E9471;
-  --color-sage-muted: #94A88A;
-  --color-warm-brown: #6B5B4E;
-  --color-warm-brown-light: #8C7B6D;
-  --color-deep-earth: #33291F;
-  --color-soft-terracotta: #C27E5E;
-  --color-teal-muted: #5B8E8A;
+  /* Dune palette */
+  --color-sand: #EDE4D8;
+  --color-sand-dark: #E4D9CB;
+  --color-cream: #F8F3EC;
+  --color-cream-warm: #F0E8DC;
 
-  --font-serif: 'Playfair Display', Georgia, serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+  --color-camel: #C49A6C;
+  --color-camel-dark: #A88050;
+  --color-espresso: #5C4A38;
+  --color-espresso-light: #6E5A48;
+  --color-latte: #D8C8B0;
+  --color-border: #D4C8B8;
+
+  --color-plum: #3A1848;
+  --color-wine: #5C2838;
+
+  --color-ink: #2D261F;
+  --color-ink-light: #4A4540;
+  --color-ink-muted: #756A5E;
+
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Bricolage Grotesque', system-ui, sans-serif;
 }
 
 html {
@@ -26,43 +31,196 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-cream);
-  color: var(--color-deep-earth);
+  background-color: var(--color-sand);
+  color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-optical-sizing: auto;
+}
+
+/* Site-wide grain overlay */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.35;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px 128px;
 }
 
 ::selection {
-  background-color: var(--color-amber);
-  color: white;
+  background-color: var(--color-espresso);
+  color: var(--color-cream);
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Animations */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes fade-in {
+@keyframes appear {
   from { opacity: 0; }
   to { opacity: 1; }
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.7s ease-out forwards;
+@keyframes slide-shape {
+  from { opacity: 0; transform: translateY(60px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.8s ease-out forwards;
+.anim-rise {
+  animation: rise 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-.delay-500 { animation-delay: 0.5s; }
+.anim-appear {
+  animation: appear 1.2s ease-out both;
+}
+
+.anim-shape {
+  animation: slide-shape 1.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.d1 { animation-delay: 0.1s; }
+.d2 { animation-delay: 0.2s; }
+.d3 { animation-delay: 0.35s; }
+.d4 { animation-delay: 0.5s; }
+.d5 { animation-delay: 0.65s; }
+.d6 { animation-delay: 0.8s; }
+.d7 { animation-delay: 1s; }
+.d8 { animation-delay: 1.2s; }
+
+@keyframes morph {
+  0%, 100% { border-radius: 60% 40% 50% 50% / 50% 60% 40% 50%; transform: scaleY(1); }
+  25% { border-radius: 50% 50% 40% 60% / 40% 50% 60% 50%; transform: scaleY(1.35); }
+  50% { border-radius: 40% 60% 50% 50% / 60% 40% 50% 50%; transform: scaleY(0.85); }
+  75% { border-radius: 50% 40% 60% 50% / 50% 50% 40% 60%; transform: scaleY(1.25); }
+}
+
+.logo-blob {
+  animation: morph 4s ease-in-out infinite;
+}
+
+/* Mother blob — soft, organic breathing */
+@keyframes mother {
+  0% { border-radius: 62% 38% 56% 44% / 48% 58% 42% 52%; transform: translate(0, 0) scale(1); }
+  14% { border-radius: 48% 52% 44% 56% / 56% 44% 52% 48%; transform: translate(5px, -8px) scale(1.03); }
+  28% { border-radius: 55% 45% 50% 50% / 44% 56% 50% 50%; transform: translate(-4px, 4px) scale(0.97); }
+  42% { border-radius: 44% 56% 58% 42% / 52% 48% 44% 56%; transform: translate(7px, 6px) scale(1.01); }
+  57% { border-radius: 52% 48% 42% 58% / 46% 54% 56% 44%; transform: translate(-6px, -5px) scale(0.98); }
+  71% { border-radius: 46% 54% 52% 48% / 54% 46% 48% 52%; transform: translate(3px, 7px) scale(1.02); }
+  85% { border-radius: 58% 42% 46% 54% / 50% 50% 54% 46%; transform: translate(-5px, -3px) scale(0.99); }
+  100% { border-radius: 62% 38% 56% 44% / 48% 58% 42% 52%; transform: translate(0, 0) scale(1); }
+}
+
+.hero-mother {
+  animation: mother 12s ease-in-out infinite;
+}
+
+/* Trainer blob — gentle drifting outline */
+@keyframes trainer {
+  0% { border-radius: 50% 50% 46% 54% / 54% 46% 50% 50%; transform: translate(0, 0) scale(1); }
+  16% { border-radius: 46% 54% 52% 48% / 48% 52% 46% 54%; transform: translate(-6px, 8px) scale(0.97); }
+  33% { border-radius: 54% 46% 48% 52% / 52% 48% 54% 46%; transform: translate(8px, -5px) scale(1.03); }
+  50% { border-radius: 48% 52% 54% 46% / 46% 54% 48% 52%; transform: translate(-4px, -7px) scale(0.99); }
+  66% { border-radius: 52% 48% 46% 54% / 54% 46% 52% 48%; transform: translate(5px, 6px) scale(1.02); }
+  83% { border-radius: 46% 54% 50% 50% / 50% 50% 46% 54%; transform: translate(-7px, 3px) scale(0.98); }
+  100% { border-radius: 50% 50% 46% 54% / 54% 46% 50% 50%; transform: translate(0, 0) scale(1); }
+}
+
+.hero-trainer {
+  animation: trainer 10.5s ease-in-out infinite;
+}
+
+/* ── Scroll-triggered reveals ── */
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.94); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes reveal-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes reveal-blob {
+  0% { opacity: 0; transform: scale(0.6); border-radius: 50%; }
+  60% { opacity: 1; transform: scale(1.04); }
+  100% { opacity: 1; transform: scale(1); border-radius: 62% 38% 56% 44% / 48% 58% 42% 52%; }
+}
+
+@keyframes count-line {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes breathe-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Base: hidden until intersection triggers */
+.scroll-reveal {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.scroll-reveal.revealed {
+  animation-fill-mode: both;
+}
+
+.scroll-reveal.revealed.rv-up {
+  animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal.revealed.rv-scale {
+  animation: reveal-scale 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal.revealed.rv-left {
+  animation: reveal-left 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal.revealed.rv-right {
+  animation: reveal-right 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.scroll-reveal.revealed.rv-blob {
+  animation: reveal-blob 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Stagger delays for scroll reveals */
+.rv-d1 { animation-delay: 0.08s !important; }
+.rv-d2 { animation-delay: 0.18s !important; }
+.rv-d3 { animation-delay: 0.28s !important; }
+.rv-d4 { animation-delay: 0.40s !important; }
+.rv-d5 { animation-delay: 0.52s !important; }
+.rv-d6 { animation-delay: 0.64s !important; }
+
+/* Breathing float for Lane's photo */
+.float-breathe {
+  animation: breathe-float 6s ease-in-out infinite;
+}
+
+/* Stat border reveal */
+.stat-line {
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+.stat-line.revealed {
+  animation: count-line 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

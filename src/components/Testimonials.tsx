@@ -1,3 +1,7 @@
+"use client";
+
+import { useScrollReveal } from "@/hooks/useScrollReveal";
+
 const testimonials = [
   {
     quote:
@@ -20,34 +24,42 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  return (
-    <section id="stories" className="py-24 lg:py-36 bg-deep-earth relative overflow-hidden">
-      {/* Subtle organic shapes on dark bg — inspired by Matrescence cover */}
-      <div className="absolute top-[10%] right-[10%] w-[220px] h-[250px] rounded-[55%_45%_50%_50%/50%_55%_45%_50%] bg-soft-terracotta/[0.08]" />
-      <div className="absolute bottom-[15%] left-[8%] w-[150px] h-[170px] rounded-[50%_50%_40%_60%/45%_55%_50%_50%] bg-teal-muted/[0.06]" />
+  const ref = useScrollReveal();
 
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-16">
-        <div className="max-w-2xl mb-20">
-          <p className="text-[13px] tracking-[0.2em] uppercase text-amber-light mb-6">
+  return (
+    <section
+      id="stories"
+      className="py-24 lg:py-36"
+      style={{ background: "linear-gradient(135deg, #5C4A38 0%, #5A3A30 50%, #6A2828 100%)" }}
+      ref={ref}
+    >
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="mb-16">
+          <p className="font-serif text-[14px] italic text-camel mb-3 scroll-reveal rv-up">
             Client Stories
           </p>
-          <h2 className="font-serif text-[clamp(2rem,4.5vw,3.4rem)] font-normal leading-[1.15] text-cream">
-            Real mothers, <em>real strength.</em>
+          <h2 className="font-serif text-[clamp(1.7rem,3.5vw,2.6rem)] font-normal leading-[1.22] text-cream scroll-reveal rv-up rv-d1">
+            Real mothers, <em className="italic">real strength.</em>
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10 lg:gap-14">
-          {testimonials.map((t) => (
-            <div key={t.name} className="flex flex-col">
-              <blockquote className="text-cream/70 leading-[1.8] text-[15px] mb-8 flex-1">
-                &ldquo;{t.quote}&rdquo;
-              </blockquote>
-              <div className="pt-6 border-t border-cream/10">
-                <p className="font-serif text-lg text-cream">{t.name}</p>
-                <p className="text-[11px] tracking-[0.12em] uppercase text-cream/40 mt-1">
-                  {t.detail}
-                </p>
-              </div>
+        <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          {testimonials.map((t, i) => (
+            <div key={t.name} className={`flex flex-col scroll-reveal rv-up rv-d${i + 2}`}>
+              {/* Giant quotation mark */}
+              <p className="font-serif text-[4rem] leading-none text-camel mb-3">
+                &ldquo;
+              </p>
+
+              <p className="text-cream/50 leading-[1.85] text-[15px] mb-8 flex-1 font-light">
+                {t.quote}
+              </p>
+
+              <div className="w-8 h-px bg-camel mb-4" />
+              <p className="font-serif text-[15px] text-cream">{t.name}</p>
+              <p className="text-[11px] text-cream/30 mt-1 tracking-[0.04em]">
+                {t.detail}
+              </p>
             </div>
           ))}
         </div>
