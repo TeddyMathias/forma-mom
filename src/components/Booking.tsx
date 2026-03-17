@@ -1,16 +1,48 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
+const ACUITY_OWNER = "38771341";
+const ACUITY_BASE = `https://app.acuityscheduling.com/schedule.php?owner=${ACUITY_OWNER}`;
+
 export default function Booking() {
-  const [selectedService, setSelectedService] = useState("");
   const ref = useScrollReveal();
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [iframeHeight, setIframeHeight] = useState(820);
+
+  /* Listen for Acuity's postMessage resize events */
+  useEffect(() => {
+    function handleMessage(e: MessageEvent) {
+      if (typeof e.data === "string" && e.data.indexOf("acuity") === 0) {
+        // Acuity sends messages like "acuity:800" for height
+        const parts = e.data.split(":");
+        if (parts[1]) {
+          const h = parseInt(parts[1], 10);
+          if (h > 0) setIframeHeight(h);
+        }
+      }
+    }
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
+  /* Load Acuity embed script for auto-resizing */
+  useEffect(() => {
+    if (document.querySelector('script[src*="embed.acuityscheduling.com"]')) return;
+    const script = document.createElement("script");
+    script.src = "https://embed.acuityscheduling.com/js/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   return (
     <section id="book" className="py-24 lg:py-36 bg-cream" ref={ref}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+        {/* Header area */}
+        <div className="grid lg:grid-cols-[1fr_2fr] gap-16 lg:gap-24">
+          {/* Left column — context */}
           <div>
             <p className="font-serif text-[14px] italic text-camel mb-3 scroll-reveal rv-up">
               Get Started
@@ -33,103 +65,54 @@ export default function Booking() {
               ].map((feature) => (
                 <div key={feature} className="flex items-center gap-3">
                   <div className="w-1.5 h-1.5 rounded-full bg-camel shrink-0" />
-                  <span className="text-ink-muted text-[14.5px] font-light">{feature}</span>
+                  <span className="text-ink-muted text-[14.5px] font-light">
+                    {feature}
+                  </span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="bg-cream-warm p-8 lg:p-10 rounded-xl scroll-reveal rv-up rv-d2">
-            <h3 className="font-serif text-[1.15rem] text-ink mb-1">
-              Book a Consultation
-            </h3>
-            <p className="text-[13px] text-ink/40 mb-7 font-light">
-              We&apos;ll be in touch within 24 hours.
-            </p>
-
-            <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div>
-                  <label className="block text-[11px] tracking-[0.06em] uppercase text-ink/40 mb-1.5 font-normal">
-                    First Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 bg-white border border-border rounded-md text-ink placeholder-ink/20 focus:outline-none focus:border-espresso transition-colors text-[14px]"
-                    placeholder="Jane"
-                  />
+          {/* Right column — Acuity embed */}
+          <div className="scroll-reveal rv-up rv-d2">
+            <div className="relative rounded-xl overflow-hidden bg-cream-warm">
+              {/* Loading skeleton */}
+              {!iframeLoaded && (
+                <div className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-cream-warm p-10">
+                  <div className="space-y-4 w-full max-w-md">
+                    <div className="h-5 w-40 bg-sand/60 rounded animate-pulse" />
+                    <div className="h-3 w-60 bg-sand/60 rounded animate-pulse" style={{ animationDelay: "0.1s" }} />
+                    <div className="mt-6 space-y-3">
+                      {[1, 2, 3].map((i) => (
+                        <div
+                          key={i}
+                          className="h-16 bg-sand/40 rounded-lg animate-pulse"
+                          style={{ animationDelay: `${i * 0.15}s` }}
+                        />
+                      ))}
+                    </div>
+                    <p className="text-center text-ink/30 text-[13px] font-light mt-8">
+                      Loading scheduler&hellip;
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <label className="block text-[11px] tracking-[0.06em] uppercase text-ink/40 mb-1.5 font-normal">
-                    Last Name
-                  </label>
-                  <input
-                    type="text"
-                    required
-                    className="w-full px-4 py-3 bg-white border border-border rounded-md text-ink placeholder-ink/20 focus:outline-none focus:border-espresso transition-colors text-[14px]"
-                    placeholder="Smith"
-                  />
-                </div>
-              </div>
+              )}
 
-              <div>
-                <label className="block text-[11px] tracking-[0.06em] uppercase text-ink/40 mb-1.5 font-normal">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  required
-                  className="w-full px-4 py-3 bg-white border border-border rounded-md text-ink placeholder-ink/20 focus:outline-none focus:border-espresso transition-colors text-[14px]"
-                  placeholder="jane@email.com"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] tracking-[0.06em] uppercase text-ink/40 mb-1.5 font-normal">
-                  Phone
-                </label>
-                <input
-                  type="tel"
-                  className="w-full px-4 py-3 bg-white border border-border rounded-md text-ink placeholder-ink/20 focus:outline-none focus:border-espresso transition-colors text-[14px]"
-                  placeholder="(212) 555-0100"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] tracking-[0.06em] uppercase text-ink/40 mb-1.5 font-normal">
-                  Service Interest
-                </label>
-                <select
-                  value={selectedService}
-                  onChange={(e) => setSelectedService(e.target.value)}
-                  className="w-full px-4 py-3 bg-white border border-border rounded-md text-ink focus:outline-none focus:border-espresso transition-colors appearance-none text-[14px]"
-                >
-                  <option value="">Select a service</option>
-                  <option value="in-home">In-Home Training</option>
-                  <option value="nylo">Training at NYLO (Tribeca)</option>
-                  <option value="virtual">Virtual Session</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block text-[11px] tracking-[0.06em] uppercase text-ink/40 mb-1.5 font-normal">
-                  Tell us about your journey
-                </label>
-                <textarea
-                  rows={3}
-                  className="w-full px-4 py-3 bg-white border border-border rounded-md text-ink placeholder-ink/20 focus:outline-none focus:border-espresso transition-colors resize-none text-[14px]"
-                  placeholder="Expecting, postpartum, fitness goals..."
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-3.5 bg-espresso text-cream text-[12px] tracking-[0.06em] uppercase rounded-md hover:opacity-85 transition-opacity duration-200 mt-1 border-none cursor-pointer"
-              >
-                Book Your Consultation
-              </button>
-            </form>
+              {/* Acuity iframe */}
+              <iframe
+                ref={iframeRef}
+                src={ACUITY_BASE}
+                title="Schedule Appointment"
+                width="100%"
+                height={iframeHeight}
+                frameBorder="0"
+                onLoad={() => setIframeLoaded(true)}
+                className={`acuity-iframe block w-full transition-opacity duration-500 ${
+                  iframeLoaded ? "opacity-100" : "opacity-0"
+                }`}
+                style={{ minHeight: 600 }}
+              />
+            </div>
           </div>
         </div>
       </div>
