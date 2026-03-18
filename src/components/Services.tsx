@@ -1,32 +1,47 @@
 "use client";
 
-import Image from "next/image";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const services = [
   {
-    num: "i.",
     title: "In-Home Training",
     description:
-      "Workouts brought directly to your doorstep. Whether in your home or your building's fitness center, experience the convenience you deserve with personalized sessions designed around your schedule.",
+      "Expert-led personal training in the comfort of your home or your building's fitness center. Experience the convenience you deserve with sessions designed around your schedule.",
     detail: "Manhattan & Brooklyn",
-    image: "/location-in-home.svg",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+    ),
   },
   {
-    num: "ii.",
-    title: "Training at NYLO",
+    title: "Training at a Studio Near You",
     description:
-      "Ready to get out of the house? We offer personal and small group training at NYLO in Tribeca — a beautiful studio space where you can focus entirely on yourself.",
-    detail: "Tribeca, NYC",
-    image: "/location-nylo.svg",
+      "Enjoy bespoke personal training sessions at premium gyms and private studios conveniently located near you.",
+    detail: "NYC Studios",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
+        <path d="M6 8H5a4 4 0 0 0 0 8h1" />
+        <line x1="6" y1="12" x2="18" y2="12" />
+        <line x1="6" y1="8" x2="6" y2="16" />
+        <line x1="18" y1="8" x2="18" y2="16" />
+      </svg>
+    ),
   },
   {
-    num: "iii.",
     title: "Virtual Sessions",
     description:
       "Receive tailor-made sessions from anywhere in the world. The same expertise and personalization of our in-person sessions, delivered to your screen.",
     detail: "Worldwide",
-    image: "/location-virtual.svg",
+    icon: (
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </svg>
+    ),
   },
 ];
 
@@ -52,19 +67,10 @@ export default function Services() {
               key={service.title}
               className={`bg-cream scroll-reveal rv-up rv-d${i + 2}`}
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                />
-              </div>
               <div className="p-9">
-                <p className="font-serif text-[2rem] italic text-camel mb-5">
-                  {service.num}
-                </p>
+                <div className="w-14 h-14 rounded-full bg-espresso/[0.07] flex items-center justify-center text-camel mb-6">
+                  {service.icon}
+                </div>
                 <h3 className="font-serif text-[1.25rem] font-normal text-ink mb-1">
                   {service.title}
                 </h3>

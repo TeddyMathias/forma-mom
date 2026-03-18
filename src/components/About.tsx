@@ -8,46 +8,35 @@ export default function About() {
   return (
     <section id="about" className="py-24 lg:py-36 bg-cream" ref={ref}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        {/* Header — full width */}
         <p className="font-serif text-[14px] italic text-camel mb-3 scroll-reveal rv-up">
           About Forma
         </p>
-        <h2 className="font-serif text-[clamp(1.7rem,3.5vw,2.6rem)] font-normal leading-[1.22] text-ink max-w-[540px] mb-10 scroll-reveal rv-up rv-d1">
-          Where luxury and fitness converge to create an <em className="italic">unparalleled experience.</em>
+        <h2 className="font-serif text-[clamp(1.7rem,3.5vw,2.6rem)] font-normal leading-[1.22] text-ink mb-14 scroll-reveal rv-up rv-d1">
+          Where motherhood and fitness <em className="italic">converge.</em>
         </h2>
 
-        <div className="grid sm:grid-cols-2 gap-8 lg:gap-12 max-w-[780px] mb-14">
-          <p className="text-[15px] leading-[1.9] text-ink-muted font-light scroll-reveal rv-up rv-d2">
-            Our white-glove service brings personalized, expert-led workouts
-            directly to your doorstep, transforming your space into a private
-            sanctuary. Each session is meticulously tailored to your unique goals.
-          </p>
-          <p className="text-[15px] leading-[1.9] text-ink-muted font-light scroll-reveal rv-up rv-d3">
-            From prenatal preparation to postpartum recovery and beyond,
-            our certified specialists understand the profound physical
-            transformations of motherhood.
-          </p>
-        </div>
+        {/* Two-column layout */}
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left — About */}
+          <div className="scroll-reveal rv-up rv-d2">
+            <p className="text-[11px] tracking-[0.15em] uppercase text-ink/35 font-light mb-5">
+              Our Approach
+            </p>
+            <p className="text-[15px] leading-[1.9] text-ink-muted font-light">
+              Your pre/postnatal expert has years of experience training hundreds of women through every stage of motherhood. Our trainers have expertise in pelvic floor health, diastasis and functional strength for motherhood. Each pregnancy is unique and so is each birth story. Our tailored sessions meet you where you are. We cover the basics of safely working out while pregnant, prepare you for labor/delivery and aid in your postpartum recovery to get you feeling strong and ready for the athletic event that is motherhood.
+            </p>
+          </div>
 
-        {/* Stats bar */}
-        <div className="flex flex-col sm:flex-row border-t border-b border-border scroll-reveal rv-up rv-d4">
-          {[
-            { value: "XX", label: "Mothers trained" },
-            { value: "XX", label: "Sessions delivered" },
-            { value: "XX", label: "Years of experience" },
-            { value: "XX", label: "Client satisfaction" },
-          ].map((stat, i) => (
-            <div
-              key={stat.label}
-              className={`flex-1 py-7 text-center ${i < 3 ? "sm:border-r sm:border-border" : ""} ${i > 0 ? "border-t sm:border-t-0 border-border" : ""}`}
-            >
-              <p className="font-serif text-[2.4rem] text-ink">
-                {stat.value}
-              </p>
-              <p className="text-[10px] tracking-[0.12em] uppercase text-ink/40 mt-1">
-                {stat.label}
-              </p>
-            </div>
-          ))}
+          {/* Right — Why Strength */}
+          <div className="scroll-reveal rv-up rv-d3">
+            <p className="text-[11px] tracking-[0.15em] uppercase text-ink/35 font-light mb-5">
+              Why Strength
+            </p>
+            <p className="text-[15px] leading-[1.9] text-ink-muted font-light">
+              Emerging research in Exercise Science and Obstetrics shows that strength training during pregnancy improves maternal metabolic health, reduces back and pelvic pain, lowers risk of complications like Gestational Diabetes, and supports better functional strength for labor and postpartum recovery.
+            </p>
+          </div>
         </div>
       </div>
     </section>

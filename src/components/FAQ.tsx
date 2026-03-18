@@ -22,7 +22,7 @@ const faqs = [
   {
     question: "What equipment do I need at home?",
     answer:
-      "Nothing — we bring everything. Your trainer arrives with all necessary equipment for each session. All you need is a small amount of open floor space.",
+      "Just a small amount of open floor space. Your trainer will let you know if any specific items are helpful for your program, but most sessions require minimal equipment.",
   },
   {
     question: "How long are the sessions?",

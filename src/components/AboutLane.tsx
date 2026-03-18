@@ -17,7 +17,7 @@ export default function AboutLane() {
               style={{ borderRadius: "62% 38% 56% 44% / 48% 58% 42% 52%" }}
             >
               <Image
-                src="/lane-slattery.jpg"
+                src="/lane-portrait.jpg"
                 alt="Lane Slattery, founder of Forma and pre/postnatal exercise specialist"
                 fill
                 className="object-cover"
@@ -36,7 +36,7 @@ export default function AboutLane() {
             </h2>
             <div className="space-y-5 text-ink-muted leading-[1.85] text-[15px] font-light">
               <p className="scroll-reveal rv-up rv-d2">
-                Lane is a New York City&ndash;based personal trainer and
+                Lane is a mom, New York City&ndash;based personal trainer, and
                 pre/postnatal exercise specialist who has trained hundreds of
                 women through pregnancy and postpartum.
               </p>

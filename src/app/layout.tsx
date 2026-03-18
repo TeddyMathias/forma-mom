@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | FORMA",
   },
   description:
-    "Personalized, expert-led prenatal and postpartum fitness brought to your doorstep in Manhattan, Brooklyn, and Tribeca. In-home training, studio sessions at NYLO, and virtual programs designed for every stage of motherhood.",
+    "Personalized, expert-led prenatal and postpartum fitness in Manhattan, Brooklyn, and beyond. In-home training, studio sessions, and virtual programs designed for every stage of motherhood.",
   keywords: [
     "prenatal fitness NYC",
     "postpartum training New York",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "FORMA | Luxury Prenatal & Postpartum Fitness — NYC",
     description:
-      "Strength for motherhood. Personalized in-home training for prenatal, postpartum, and beyond — delivered by certified specialists in Manhattan, Brooklyn, and virtually anywhere.",
+      "Strength for motherhood. Personalized in-home training for prenatal, postpartum, and beyond — delivered by a pre & postnatal exercise specialist in Manhattan, Brooklyn, and virtually anywhere.",
     url: siteUrl,
     siteName: "Forma",
     locale: "en_US",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "FORMA | Strength for Motherhood",
     description:
-      "Personalized prenatal & postpartum fitness brought to your doorstep. In-home training across NYC and virtual sessions worldwide.",
+      "Personalized prenatal & postpartum fitness in NYC and beyond. In-home, studio, and virtual sessions designed for every stage of motherhood.",
     images: ["/og-image.jpg"],
   },
   robots: {
@@ -151,7 +151,7 @@ const faqJsonLd = {
       name: "What equipment do I need at home?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Nothing — we bring everything. Your trainer arrives with all necessary equipment for each session.",
+        text: "Just a small amount of open floor space. Your trainer will let you know if any specific items are helpful for your program, but most sessions require minimal equipment.",
       },
     },
     {

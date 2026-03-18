@@ -16,7 +16,7 @@ const steps = [
   {
     title: "Expert-Led Sessions",
     description:
-      "Every session is led by a certified specialist who understands the biomechanics of pregnancy and postpartum. We bring all equipment to you.",
+      "Every session is led by a pre & postnatal exercise specialist who understands the biomechanics of pregnancy and postpartum recovery.",
   },
   {
     title: "Ongoing Evolution",

@@ -15,9 +15,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-[16.5px] text-ink-muted leading-[1.85] max-w-[420px] mx-auto mb-10 font-light anim-rise d3">
-            Personalized, expert-led fitness brought to your
-            doorstep. Supporting your body through every stage
-            of the journey.
+            Personalized, expert-led fitness designed for
+            every stage of motherhood. In-home, studio,
+            and virtual sessions on your terms.
           </p>
 
           <div className="flex flex-wrap gap-3 justify-center anim-rise d4">

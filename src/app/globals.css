@@ -225,3 +225,24 @@ body::after {
 .stat-line.revealed {
   animation: count-line 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
+
+/* Matrescence soft glow */
+@keyframes soft-glow {
+  0%, 100% { opacity: 0.25; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(1.05); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0); }
+  25% { transform: translate(12px, -8px); }
+  50% { transform: translate(-6px, 14px); }
+  75% { transform: translate(-14px, -4px); }
+}
+
+.matrescence-orb {
+  animation: soft-glow 6s ease-in-out infinite, drift 18s ease-in-out infinite;
+}
+
+.matrescence-orb-2 {
+  animation: soft-glow 8s ease-in-out infinite 3s, drift 22s ease-in-out infinite reverse;
+}

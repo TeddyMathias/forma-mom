@@ -25,7 +25,7 @@ export default function Navigation() {
             <div className="hidden md:flex items-center gap-8">
               {[
                 { label: "About", href: "#about" },
-                { label: "Lane", href: "#lane" },
+                { label: "Trainer", href: "#lane" },
                 { label: "Services", href: "#services" },
                 { label: "Approach", href: "#approach" },
                 { label: "Stories", href: "#stories" },
@@ -67,7 +67,7 @@ export default function Navigation() {
             <div className="px-6 py-8 space-y-5">
               {[
                 { label: "About", href: "#about" },
-                { label: "Lane", href: "#lane" },
+                { label: "Trainer", href: "#lane" },
                 { label: "Services", href: "#services" },
                 { label: "Approach", href: "#approach" },
                 { label: "Stories", href: "#stories" },
