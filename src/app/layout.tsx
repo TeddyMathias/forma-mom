@@ -62,6 +62,11 @@ export const metadata: Metadata = {
       "Personalized prenatal & postpartum fitness in NYC and beyond. In-home, studio, and virtual sessions designed for every stage of motherhood.",
     images: ["/og-image.jpg"],
   },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
