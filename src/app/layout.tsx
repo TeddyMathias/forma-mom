@@ -6,11 +6,11 @@ const siteUrl = "https://forma.mom";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "FORMA | Luxury Prenatal & Postpartum Fitness — NYC",
+    default: "Forma: Strength for Motherhood",
     template: "%s | FORMA",
   },
   description:
-    "Personalized, expert-led prenatal and postpartum fitness in Manhattan, Brooklyn, and beyond. In-home training, studio sessions, and virtual programs designed for every stage of motherhood.",
+    "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
   keywords: [
     "prenatal fitness NYC",
     "postpartum training New York",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "FORMA | Luxury Prenatal & Postpartum Fitness — NYC",
+    title: "Forma: Strength for Motherhood",
     description:
-      "Strength for motherhood. Personalized in-home training for prenatal, postpartum, and beyond — delivered by a pre & postnatal exercise specialist in Manhattan, Brooklyn, and virtually anywhere.",
+      "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
     url: siteUrl,
     siteName: "Forma",
     locale: "en_US",
@@ -51,15 +51,15 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Forma — Luxury prenatal and postpartum fitness in NYC",
+        alt: "FORMA — Prenatal and postpartum strength training in NYC",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FORMA | Strength for Motherhood",
+    title: "Forma: Strength for Motherhood",
     description:
-      "Personalized prenatal & postpartum fitness in NYC and beyond. In-home, studio, and virtual sessions designed for every stage of motherhood.",
+      "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
     images: ["/og-image.jpg"],
   },
   icons: {
