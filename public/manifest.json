@@ -1,0 +1,16 @@
+{
+  "name": "Forma: Strength for Motherhood",
+  "short_name": "Forma",
+  "description": "Expert-led prenatal and postpartum strength training in NYC.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF6F1",
+  "theme_color": "#1A1A1A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

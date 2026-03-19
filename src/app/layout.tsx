@@ -66,6 +66,7 @@ export const metadata: Metadata = {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
     ],
+    apple: "/apple-touch-icon.png",
   },
   robots: {
     index: true,
@@ -120,7 +121,10 @@ const jsonLd = {
     opens: "06:00",
     closes: "21:00",
   },
-  sameAs: [],
+  sameAs: [
+    "https://www.instagram.com/forma.mom",
+    "https://www.tiktok.com/@forma.mom",
+  ],
 };
 
 const faqJsonLd = {
@@ -186,10 +190,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600&display=swap"
           rel="stylesheet"
         />
+        <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
