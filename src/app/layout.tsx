@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     description:
       "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
     url: siteUrl,
-    siteName: "Forma",
+    siteName: "Forma: Strength for Motherhood",
     locale: "en_US",
     type: "website",
     images: [
