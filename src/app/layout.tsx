@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://forma.mom";
+const siteUrl = "https://matre.mom";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Forma: Strength for Motherhood",
-    template: "%s | FORMA",
+    default: "Train with Lane: Strength for Motherhood",
+    template: "%s | Train with Lane",
   },
   description:
     "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     "in-home workout Manhattan",
     "Lane Slattery trainer",
   ],
-  authors: [{ name: "Forma" }],
-  creator: "Forma",
-  publisher: "Forma",
+  authors: [{ name: "Train with Lane" }],
+  creator: "Train with Lane",
+  publisher: "Train with Lane",
   formatDetection: {
     telephone: true,
     email: true,
@@ -39,11 +39,11 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   openGraph: {
-    title: "Forma: Strength for Motherhood",
+    title: "Train with Lane: Strength for Motherhood",
     description:
       "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
     url: siteUrl,
-    siteName: "Forma: Strength for Motherhood",
+    siteName: "Train with Lane: Strength for Motherhood",
     locale: "en_US",
     type: "website",
     images: [
@@ -51,13 +51,13 @@ export const metadata: Metadata = {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "FORMA — Prenatal and postpartum strength training in NYC",
+        alt: "Train with Lane — Prenatal and postpartum strength training in NYC",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Forma: Strength for Motherhood",
+    title: "Train with Lane: Strength for Motherhood",
     description:
       "Expert-led prenatal and postpartum strength training in NYC. Personalized in-home, studio, and virtual sessions in Manhattan, Brooklyn, and beyond — for every stage of motherhood.",
     images: ["/og-image.jpg"],
@@ -85,13 +85,13 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  name: "Forma",
+  name: "Train with Lane",
   description:
     "Luxury prenatal and postpartum fitness training. Personalized in-home sessions in Manhattan and Brooklyn, studio training at NYLO Tribeca, and virtual programs worldwide.",
   url: siteUrl,
   image: `${siteUrl}/og-image.jpg`,
   telephone: "",
-  email: "hello@forma.mom",
+  email: "hello@matre.mom",
   address: {
     "@type": "PostalAddress",
     addressLocality: "New York",
@@ -122,8 +122,8 @@ const jsonLd = {
     closes: "21:00",
   },
   sameAs: [
-    "https://www.instagram.com/forma.mom",
-    "https://www.tiktok.com/@forma.mom",
+    "https://www.instagram.com/matre.mom",
+    "https://www.tiktok.com/@matre.mom",
   ],
 };
 

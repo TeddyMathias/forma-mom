@@ -17,9 +17,16 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16 lg:h-20">
             <a
               href="#"
-              className="font-serif text-[2.125rem] text-ink"
+              className="font-serif text-[2.125rem] text-ink flex items-center gap-1"
             >
-              F<span className="inline-block relative top-[-0.05em] mx-[0.04em] w-[0.6em] h-[0.6em]"><span className="absolute inset-0 bg-camel logo-blob" /><span className="absolute inset-0 border-[1px] border-ink logo-blob z-10" style={{ animationDelay: '-1s' }} /></span>RMA
+              TRAIN
+              <span
+                className="inline-flex items-center justify-center px-3 py-0.5 text-[0.55em] tracking-[0.08em] text-cream logo-blob"
+                style={{ backgroundColor: "var(--color-camel)" }}
+              >
+                WITH
+              </span>
+              LANE
             </a>
 
             <div className="hidden md:flex items-center gap-8">

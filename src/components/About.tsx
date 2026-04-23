@@ -10,7 +10,7 @@ export default function About() {
       <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
         {/* Header — full width */}
         <p className="font-serif text-[14px] italic text-camel mb-3 scroll-reveal rv-up">
-          About Forma
+          About Train with Lane
         </p>
         <h2 className="font-serif text-[clamp(1.7rem,3.5vw,2.6rem)] font-normal leading-[1.22] text-ink mb-14 scroll-reveal rv-up rv-d1">
           Where motherhood and fitness <em className="italic">converge.</em>

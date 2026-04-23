@@ -18,7 +18,7 @@ export default function AboutLane() {
             >
               <Image
                 src="/lane-portrait.jpg"
-                alt="Lane Slattery, founder of Forma and pre/postnatal exercise specialist"
+                alt="Lane Slattery, founder of Train with Lane and pre/postnatal exercise specialist"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 280px, 340px"

@@ -40,7 +40,7 @@ export default function Approach() {
               A journey, not <em className="italic">a workout.</em>
             </h2>
             <p className="text-ink-muted leading-[1.85] text-[15px] max-w-md mb-10 font-light scroll-reveal rv-up rv-d2">
-              We don&apos;t believe in one-size-fits-all. Forma is built around the
+              We don&apos;t believe in one-size-fits-all. Train with Lane is built around the
               understanding that motherhood is a profound transformation — and
               your fitness should honor every phase of it.
             </p>

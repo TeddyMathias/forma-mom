@@ -51,7 +51,7 @@ export default function Booking() {
               Your first step <em className="italic">starts here.</em>
             </h2>
             <p className="text-ink-muted leading-[1.85] text-[15px] mb-10 max-w-md font-light scroll-reveal rv-up rv-d2">
-              Book a complimentary consultation and discover how Forma can
+              Book a complimentary consultation and discover how Train with Lane can
               support your unique journey. No commitment, no pressure — just a
               conversation about what strength means to you.
             </p>

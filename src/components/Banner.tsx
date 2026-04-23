@@ -17,7 +17,7 @@ export default function Banner() {
           </h2>
           <p className="text-ink-muted leading-[1.85] text-[15px] max-w-lg mx-auto mb-10 font-light">
             Whether you&apos;re preparing for birth, navigating the fourth trimester,
-            or reclaiming your fitness years into motherhood — Forma is here
+            or reclaiming your fitness years into motherhood — Train with Lane is here
             for every chapter.
           </p>
           <a
