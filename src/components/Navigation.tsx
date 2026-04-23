@@ -19,14 +19,14 @@ export default function Navigation() {
               href="#"
               className="font-serif text-[2.125rem] text-ink flex items-center gap-1"
             >
-              TRAIN
+              Train
               <span
-                className="inline-flex items-center justify-center px-3 py-0.5 text-[0.55em] tracking-[0.08em] text-cream logo-blob"
+                className="inline-flex items-center justify-center px-3 py-0.5 text-[0.55em] tracking-[0.08em] text-cream logo-blob-slow"
                 style={{ backgroundColor: "var(--color-camel)" }}
               >
-                WITH
+                with
               </span>
-              LANE
+              Lane
             </a>
 
             <div className="hidden md:flex items-center gap-8">
